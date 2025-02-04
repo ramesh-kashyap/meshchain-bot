@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../image_2025_01_24T08_48_53_087Z.png';
+import logo from '../../c0vj7n5t-removebg-preview.png';
 const Header = () => {
   return (
     
@@ -10,12 +10,12 @@ const Header = () => {
             alt="Logo"
             loading="lazy"
             width="163"
-            height="40"
+            
             decoding="async"
             data-nimg="1"
             className="max-w-[156px]"
             src={logo} 
-            style={{ color: "transparent", width: "50px" }}
+            style={{ color: "transparent", width:"60px",height:"10"}}
           />
         </a>
         <div className="w-full flex flex-row justify-end md:justify-between">
@@ -45,17 +45,16 @@ const Header = () => {
 
           {/* Button Section */}
           <div className="relative flex items-center space-x-2 font-semibold">
-            <span className="hidden lg:inline text-xl">Hello, raj!</span>
+            <span className="hidden lg:inline text-xl">Hello, Ashu!</span>
+            
             <button>
               <div
                 className="flex items-center justify-center w-[40px] h-[38px] rounded-full mx-auto text-[24px] font-semibold"
                 style={{
-                  backgroundColor: "#0093E9",
-                  backgroundImage: "linear-gradient(315deg, #0093E9 0%, #80D0C7 100%)",
+                  backgroundColor:'rgb(95, 202, 237)'
                 }}
               >
-            
-              </div>
+            A  </div>
             </button>
             <div className="hidden md:inline-block">
               <div className="relative inline-block text-[16px] font-bold">

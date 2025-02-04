@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../image_2025_01_24T08_48_53_087Z.png';
+import logo from '../../c0vj7n5t-removebg-preview.png';
 
 export default function Sidebar() {
   return (
@@ -11,7 +11,7 @@ export default function Sidebar() {
                 <Link
                   className="flex items-center py-5 pl-[22px] h-[80px]"
                  to="/"
-                  style={{ width: "119px" }}
+                  style={{ width: "180px" }}
                 >
                   <img
                     alt="Logo"
@@ -21,7 +21,7 @@ export default function Sidebar() {
                     decoding="async"
                     data-nimg="1"
                     src={logo}
-                    style={{ color: "transparent", width: "150px" }}
+                    style={{ color: "transparent", width: "180px" }}
                   />
                 </Link>
                 <button
