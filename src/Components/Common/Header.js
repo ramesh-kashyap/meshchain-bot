@@ -15,7 +15,7 @@ const Header = () => {
             data-nimg="1"
             className="max-w-[156px]"
             src={logo} 
-            style={{ color: "transparent", width:"60px",height:"10"}}
+            style={{ color: "transparent"}}
           />
         </a>
         <div className="w-full flex flex-row justify-end md:justify-between">
@@ -45,7 +45,7 @@ const Header = () => {
 
           {/* Button Section */}
           <div className="relative flex items-center space-x-2 font-semibold">
-            <span className="hidden lg:inline text-xl">Hello, Ashu!</span>
+            <span className="lg:inline text-xl">Hello, Ashu!</span>
             
             <button>
               <div

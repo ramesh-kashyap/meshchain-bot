@@ -708,7 +708,7 @@ video {
 }
 
 .h-\[80px\] {
-  height: 80px
+  height: 80px;
 }
 
 .h-auto {
@@ -841,7 +841,7 @@ video {
 }
 
 .w-\[80px\] {
-  width: 80px
+  width: 100%;
 }
 
 .w-fit {
