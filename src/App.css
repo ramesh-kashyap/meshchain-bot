@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.max-w-\[156px\] {
+  max-width: 142px;
+}
+.text-xl {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}

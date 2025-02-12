@@ -1,12 +1,18 @@
-import React from "react";
-
+import React , { useState }  from "react";
+import { toast } from "react-hot-toast";
 const Referral = () => {
+  const [isActive, setIsActive] = useState(false);
+    const [telegram_id] = useState(localStorage.getItem("telegram_id"));
   const copyToClipboard = () => {
     const textToCopy = document.getElementById("textToCopy").textContent;
     navigator.clipboard.writeText(textToCopy).then(() => {
-      alert("Referral link copied to clipboard!");
+      toast.success("Referral Copied!");
     });
   };
+  const handleClick = () => {
+    setIsActive(!isActive); // Toggle class
+  };
+  
 
   return (
     <div
@@ -27,41 +33,57 @@ const Referral = () => {
                <p className="pl-3 font-semibold text-[16px] text-center mt-2">Your Friends(0)</p>
             </button>
             <div className="p-5 h-full rounded-[16px] flex flex-col justify-center items-center" style={{background: 'rgb(240, 240, 240)'}}>
-  <div className="text-center mb-[14px]">
-    <p className="text-sm text-gray-500">Claimable Rewards</p>
-    <p className="text-xl font-semibold">0 pt</p>
-  </div>
+              <div className="text-center mb-[14px]">
+                <p className="text-sm text-gray-500">Claimable Rewards</p>
+                <p className="text-xl font-semibold">0 pt</p>
+              </div>
 
-  <button
-    className="bg-black text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-800"
-    style={{
-      backgroundImage: 'linear-gradient(315deg,rgb(88, 88, 88) 0%,rgb(96, 96, 96) 100%)',
-      border: 'none',
-      padding: '5px 20px',
-      fontSize: '14px',
-      cursor: 'pointer',
-    }}
-  >
-    Claim
-  </button>
-</div>
-<button
-    className="bg-black text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-800"
-    style={{
-      backgroundImage: 'linear-gradient(315deg,rgb(0, 0, 0) 0%,rgb(0, 0, 0) 100%)',
-      border: 'none',
-      padding: '10px 20px',
-      fontSize: '14px',
-      cursor: 'pointer',
-    }}
-  >
-    Invite Friends
-  </button> 
+              <button
+                className="bg-black text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-800"
+                style={{
+                  backgroundImage: 'linear-gradient(315deg,rgb(88, 88, 88) 0%,rgb(96, 96, 96) 100%)',
+                  border: 'none',
+                  padding: '5px 20px',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                }}
+              >
+                Claim
+              </button>
+          </div>
+          <p style={{fontSize:"13px"}}>Invite your friend to HyperMesh! Earn 20% of their rewards and 5% from their friends' rewards.
+          </p>
+
+          <img  src="/icon/referral_program.png" />
+          <button
+          className="bg-black text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-800"
+          style={{
+            backgroundImage: 'linear-gradient(315deg,rgb(0, 0, 0) 0%,rgb(0, 0, 0) 100%)',
+            border: 'none',
+            padding: '10px 20px',
+            fontSize: '14px',
+            cursor: 'pointer',
+          }} onClick={handleClick}
+        >
+        Invite Friends
+      </button> 
       </div>
-      
-   </div>
-   
+   </div> 
 </div>
+<div className={`modal-backdrop ${isActive ? "modal-active" : ""}`}>
+        <div class="modal-content">
+            <h1 class="modal-header">Friendship bonus</h1>
+            <div class="modal-body" id="textToCopy">
+                https://t.me/meshrockbot?start=T_{telegram_id}
+            </div>
+            <div class="modal-footer">
+                <button onClick={copyToClipboard}>
+                    Copy Referral Link
+                </button>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 

@@ -20,17 +20,17 @@ const Profile = () => {
              <div className="flex flex-col items-center justify-center gap-2 ">
       {/* Content Text */}
       <div className="flex justify-center mb-4">
-    <img
+    <img style={{   width: '144px'}}
       src={logo} // Replace with actual logo URL
       alt="Logo"
       className="w-[80px] h-[80px]" // Adjust size of the logo as needed
     />
   </div>
       <div className="font-semibold text-center">
-        Connect app.meshchain.ai
+        Connect app.HyperMesh.ai
       </div>
       <div className="text-gray-500 text-center">
-  Connect your Telegram to your MeshChain account for easy node management and reward tracking.
+  Connect your Telegram to your HyperMesh account for easy node management and reward tracking.
 </div>
 
       {/* Button */}

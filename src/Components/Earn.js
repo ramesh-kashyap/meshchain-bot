@@ -42,17 +42,50 @@ const Earn = () => {
 
 {/* Task 1 */}
 
+
 <div  className="bg-white rounded-lg shadow p-6 mb-6 flex items-center justify-between">
+  
+  
   {/* Left section with image and text */}
   <div className="flex items-center space-x-4" >
-    <img style={{width: '40px',height:'40px'}}
-      src={logo}
+    <img style={{width: '30px',height:'30px'}}
+      src="/icon/verification.png"
+      alt="Telegram icon"
+      className="w-10 h-10 rounded-full" // Ensures the image is circular and fixed size
+    />
+    <div className="flex flex-col">
+      <div className="font-semibold text-gray-700">Email verification      </div>
+      <div className="text-yellow-500 text-sm" style={{color:"#499200"}}>+0.0015 BNB</div>
+    </div>
+  </div>
+
+  {/* Button section */}
+  <button
+    className="bg-black text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-800"
+    style={{
+      border: 'none',
+      padding: '5px 20px', // Ensures the button is more spacious and aligned
+      fontSize: '14px',
+      cursor: 'pointer',
+    }}
+  >
+    Start
+  </button>
+</div>
+
+<div  className="bg-white rounded-lg shadow p-6 mb-6 flex items-center justify-between">
+  
+  
+  {/* Left section with image and text */}
+  <div className="flex items-center space-x-4" >
+    <img style={{width: '30px',height:'30px'}}
+      src="/icon/verification.png"
       alt="Telegram icon"
       className="w-10 h-10 rounded-full" // Ensures the image is circular and fixed size
     />
     <div className="flex flex-col">
       <div className="font-semibold text-gray-700">Join Telegram Miniapp</div>
-      <div className="text-yellow-500 text-sm">+0.0015 BNB</div>
+      <div className="text-yellow-500 text-sm" style={{color:"#499200"}}>+0.0015 USDT</div>
     </div>
   </div>
 
@@ -74,14 +107,14 @@ const Earn = () => {
 <div className="bg-white rounded-lg shadow p-6 mb-6 flex items-center justify-between">
   {/* Left section with image and text */}
   <div className="flex items-center space-x-4">
-    <img style={{width: '40px',height:'40px'}}
-      src={logo}
+    <img style={{width: '30px',height:'30px'}}
+      src="/icon/x.png"
       alt="Telegram icon"
       className="w-14 h-14 rounded-full" // Increased image size to w-14 h-14
     />
     <div className="flex flex-col">
-      <div className="font-semibold text-gray-700">Join Telegram Miniapp</div>
-      <div className="text-green-500 text-sm">+0.0015 BNB</div>
+      <div className="font-semibold text-gray-700">Connect Your X (Twitter) Account      </div>
+      <div className="text-green-500 text-sm">+0.0015 USDT</div>
     </div>
   </div>
 
@@ -98,6 +131,63 @@ const Earn = () => {
     Start
   </button>
 </div>
+
+<div className="bg-white rounded-lg shadow p-6 mb-6 flex items-center justify-between">
+  {/* Left section with image and text */}
+  <div className="flex items-center space-x-4">
+    <img style={{width: '30px',height:'30px'}}
+      src="/icon/telegram-channel.png"
+      alt="Telegram icon"
+      className="w-14 h-14 rounded-full" // Increased image size to w-14 h-14
+    />
+    <div className="flex flex-col">
+      <div className="font-semibold text-gray-700">Join Telegram Channel</div>
+      <div className="text-green-500 text-sm">+0.0015 USDT</div>
+    </div>
+  </div>
+
+  {/* Button section */}
+  <button
+    className="bg-black text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-800"
+    style={{
+      border: 'none',
+      padding: '5px 20px', // Ensures the button is more spacious and aligned
+      fontSize: '14px',
+      cursor: 'pointer',
+    }}
+  >
+    Start
+  </button>
+</div>
+
+<div className="bg-white rounded-lg shadow p-6 mb-6 flex items-center justify-between">
+  {/* Left section with image and text */}
+  <div className="flex items-center space-x-4">
+    <img style={{width: '30px',height:'30px'}}
+      src="/icon/discord.png"
+      alt="Telegram icon"
+      className="w-14 h-14 rounded-full" // Increased image size to w-14 h-14
+    />
+    <div className="flex flex-col">
+      <div className="font-semibold text-gray-700">Join Discord Channel </div>
+      <div className="text-green-500 text-sm">+0.0015 USDT</div>
+    </div>
+  </div>
+
+  {/* Button section */}
+  <button
+    className="bg-black text-white font-bold py-2 px-6 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-800"
+    style={{
+      border: 'none',
+      padding: '5px 20px', // Ensures the button is more spacious and aligned
+      fontSize: '14px',
+      cursor: 'pointer',
+    }}
+  >
+    Start
+  </button>
+</div>
+
 
 
       </div>

@@ -13,15 +13,13 @@ export default function Sidebar() {
                  to="/"
                   style={{ width: "180px" }}
                 >
-                  <img
+                  <img className='logo'
                     alt="Logo"
                     loading="lazy"
-                    width="163"
-                    height="40"
+                    
                     decoding="async"
                     data-nimg="1"
                     src={logo}
-                    style={{ color: "transparent", width: "180px" }}
                   />
                 </Link>
                 <button

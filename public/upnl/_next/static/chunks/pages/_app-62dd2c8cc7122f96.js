@@ -2377,7 +2377,7 @@
               description: e.description,
               url: e.canonical,
               locale: "en",
-              site_name: "Meshchain"
+              site_name: "HyperMesh"
             }
           })]
         })
@@ -2762,8 +2762,8 @@
             children: [(0, n.jsx)(M.GoogleAnalytics, {
               gaId: "G-5PPR32GMM8"
             }), (0, n.jsx)(R.h, {
-              title: "MeshChain - Decentralized Compute Network for AI Training, Inference, and Gaming Rendering",
-              description: "Explore MeshChain, a decentralized compute network offering scalable solutions for AI training, inference, and gaming rendering. Unlock cost-efficient power and secure blockchain-based performance."
+              title: "HyperMesh - Decentralized Compute Network for AI Training, Inference, and Gaming Rendering",
+              description: "Explore HyperMesh, a decentralized compute network offering scalable solutions for AI training, inference, and gaming rendering. Unlock cost-efficient power and secure blockchain-based performance."
             }), (0, n.jsxs)(T.zt, {
               store: x.h,
               children: [(0, n.jsx)(P.Ix, {
@@ -3244,7 +3244,7 @@
       var n = r(4199),
         o = r(9709),
         i = r(2);
-      let a = "https://api.meshchain.ai",
+      let a = "https://api.HyperMesh.ai",
         s = !1,
         u = [],
         l = function (e) {

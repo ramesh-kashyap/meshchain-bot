@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import Loader from './Loader';
 
-// Assuming you have a function to check if the user is authenticated
 const ProtectedRoute = ({ children }) => {
-    const isAuthenticated = localStorage.getItem('isAuthenticated'); // Or check from Redux/Context API or other state
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
 
-    // If the user is not authenticated, redirect to login page
-    if (!isAuthenticated) {
-        return <Navigate to="/login" />;
-    }
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const token = localStorage.getItem('token');
 
-    return children;
+        // alert(token);
+        if (!token) {
+          setIsAuthenticated(false);
+          return;
+        }
+        setIsAuthenticated(true);
+      } catch (error) {
+        setIsAuthenticated(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  if (isAuthenticated === null) {
+    return (
+     <Loader/>
+    );
+  }
+  return isAuthenticated ? children :'';
 };
 
 export default ProtectedRoute;

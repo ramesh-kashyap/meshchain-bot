@@ -14,15 +14,14 @@ function Home() {
       setValue('5 pt');   
     }
   };
-
   return (
     <>
+           
       <div className="flex-1 flex flex-col text-black bg-[#F1F1F1] h-screen">
         <div className="flex-1 overflow-y-auto px-4 md:px-10 lg:px-10 xl:px-20 pt-5 pb-[88px] md:pb-[20px]">
           <div
             className="w-full"
-            style={{
-            
+            style={{  
               borderRadius: '20px',
               
               padding: '20px',
@@ -78,7 +77,7 @@ function Home() {
                 }}
               ></div>
             </div>
-            <div class="mt-2 text-sm font-medium">22h 41m 44s</div>
+            <div className="mt-2 text-sm font-medium">22h 41m 44s</div>
             
             {/* Button Section */}
             <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'center', gap: '10px' }}>
@@ -168,6 +167,13 @@ function Home() {
                   Total Rewards
                 </p>
               </div>
+
+              <div className="mt-8">
+            <img alt="DNode Trading Now Live Banner" className="rounded-lg shadow-lg" src="/upnl/assets/images/bnner.png"/>
+            </div>
+
+
+
             </div>
           </div>
         </div>
