@@ -1,19 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import CountdownTimer from './CountdownTimer';
+import Api from '../services/Api';
 
 function Home() {
-
+  const [telegram_id] = useState(localStorage.getItem("telegram_id"));
   const [activeButton, setActiveButton] = useState('reward');
-  const [value, setValue] = useState('0 pt');  
+  const [value1, setValue1] = useState('0.00');  
+  const [value2, setValue2] = useState('0.00');  
+  const [text1, setText1] = useState('Todays Mining');  
+  const [text2, setText2] = useState('Total Rewards');  
 
   const handleButtonClick = (button) => {
     setActiveButton(button);
 
     if (button === 'reward') {
-      setValue('10 pt');  
+      fetchMiningBonus();
+      setText1('Todays Mining');   
+      setText2('Total Rewards');   
     } else {
-      setValue('5 pt');   
+      setValue1('100');   
+      setValue2('0.25 TH/s');   
+      setText1('Network Difficulty');   
+      setText2('Hash Rate');   
     }
   };
+
+    useEffect(() => {
+      fetchMiningBonus();
+    }, []);
+    const fetchMiningBonus = async () => {
+      try {
+        const response = await Api.get("auth/get-mining-bonus");
+        if (response.data.success) {
+          setValue1(response.data.todayBonus);
+          setValue2(response.data.totalBonus);
+        }
+      } catch (error) {
+        console.error("❌ Error fetching lastTrade:", error);
+      }
+    };
+
   return (
     <>
            
@@ -33,51 +59,10 @@ function Home() {
           >
             {/* Countdown Section */}
             {/* Circular Progress Section */}
-            <div
-              style={{
-                width: '160px',
-                height: '160px',
-                backgroundImage: 'linear-gradient(315deg, #0093E9 0%, #80D0C7 100%)',
-                margin: '0 auto',
-                border: '5px solid rgb(219, 219, 219)',
-                borderRadius: '50%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'relative',
-              }}
-            >
-              <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#fff' }}>
-               0.00 pt
-              </span>
-              <button
-                style={{
-                  backgroundColor: 'black',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: '20px',
-                  padding: '5px 15px',
-                  fontSize: '14px',
-                  cursor: 'pointer',
-                  marginTop: '10px',
-                }}
-              >
-                Claim
-              </button>
-              <div
-                style={{
-                  content: '',
-                  width: '90%',
-                  height: '90%',
-                  background: 'rgba(0, 208, 138, 0.2)',
-                  borderRadius: '50%',
-                  position: 'absolute',
-                  zIndex: -1,
-                }}
-              ></div>
-            </div>
-            <div className="mt-2 text-sm font-medium">22h 41m 44s</div>
+            
+            <CountdownTimer depositAmount={100} /> 
+           
+         
             
             {/* Button Section */}
             <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'center', gap: '10px' }}>
@@ -137,10 +122,10 @@ function Home() {
                     display: 'block',
                   }}
                 >
-                  {value} {/* Show the value based on active button */}
+                  {value1} {/* Show the value based on active button */}
                 </span>
                 <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#333' }}>
-                  Today Mining
+                {text1}
                 </p>
               </div>
               <div
@@ -161,10 +146,10 @@ function Home() {
                     display: 'block',
                   }}
                 >
-                  {value} {/* Show the value based on active button */}
+                  {value2} {/* Show the value based on active button */}
                 </span>
                 <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#333' }}>
-                  Total Rewards
+                {text2}
                 </p>
               </div>
 

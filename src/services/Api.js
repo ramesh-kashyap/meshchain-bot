@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const Api = axios.create({
-  baseURL: 'https://7406-2405-201-5802-909b-488e-7b9d-a8cd-eed0.ngrok-free.app', // Ensure backend is running
+  baseURL: 'https://api.hypermesh.io/api/', // Ensure backend is running
   headers: {
     'Content-Type': 'application/json',
   },

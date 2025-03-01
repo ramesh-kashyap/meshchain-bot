@@ -34,19 +34,26 @@ function App() {
 
         if (initDataUnsafe && initDataUnsafe.user) {
             setUser(initDataUnsafe.user);
-
             const telegramUser = {
                 telegram_id: initDataUnsafe.user.id,
                 tusername: initDataUnsafe.user.username || "",
                 tname: initDataUnsafe.user.first_name || "",
                 tlastname: initDataUnsafe.user.last_name || "",
             };
+            // const telegramUser = {
+            //     telegram_id: "1197473382",
+            //     tusername: "rameshkashyapdev",
+            //     tname: "Ramesh",
+            //     tlastname: "",
+            // };
 
             const loginUser = async () => {
+              
                 if (requestSent.current) return; // ✅ Prevent duplicate API calls
                 requestSent.current = true;
+                
                 try {
-                    const response = await Api.post('/telegram-login', telegramUser);
+                    const response = await Api.post('auth/telegram-login',telegramUser);
                     if (response.data.token) {
                         setToken(response.data.token);
                         setTelegramId(response.data.telegram_id);
@@ -59,15 +66,20 @@ function App() {
                         console.error("❌ Login Error:", response.data.message);
                     }
                 } catch (error) {
-                    console.error("❌ API Error:", error);
+                    console.error("❌ API Error:", error.message, error.stack);
+                    alert(error.message);
                 } finally {
                     setLoading(false);
                 }
             };
+
+
             loginUser();
         }
     }, []);
 
+
+    
     // ✅ Fetch user info only when telegram_id is available
     useEffect(() => {
         if (telegram_id) {
@@ -77,7 +89,7 @@ function App() {
 
     const fetchUserInfo = async (telegram_id) => {
         try {
-            const response = await Api.post('/telegram-user-detail', { telegram_id });
+            const response = await Api.post('auth/telegram-user-detail', { telegram_id });
             if (response.data.status) {
                 setUsername(response.data.user.user_id
                     ? response.data.user.name

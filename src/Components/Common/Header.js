@@ -43,7 +43,7 @@ const Header = () => {
             if (requestSent.current) return; 
             requestSent.current = true;
             try {
-                const response = await Api.post('/telegram-login', telegramUser);
+                const response = await Api.post('auth/telegram-login', telegramUser);
                 if (response.data.token) {
                     setToken(response.data.token);
                     setTelegramId(response.data.telegram_id);
@@ -74,7 +74,7 @@ useEffect(() => {
 
 const fetchUserInfo = async (telegram_id) => {
     try {
-        const response = await Api.post('/telegram-user-detail', { telegram_id });
+        const response = await Api.post('auth/telegram-user-detail', { telegram_id });
         if (response.data.status) {
             setUsername(response.data.user.user_id 
                 ? response.data.user.name 
