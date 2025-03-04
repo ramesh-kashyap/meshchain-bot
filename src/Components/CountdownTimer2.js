@@ -39,7 +39,6 @@ const CountdownTimer = ({ depositAmount = 100 }) => {
           return newPoints;
         });
       }, 5000);
-
       return () => {
         clearInterval(timer);
         clearInterval(intervalRef.current);
@@ -108,50 +107,39 @@ const CountdownTimer = ({ depositAmount = 100 }) => {
   };
 
   return (
-    <><div style={styles.container} >
-      <svg width="160" height="160" viewBox="0 0 160 160">
-        {/* Outer Border */}
-        <circle cx="80" cy="80" r="70" stroke="#5ecaed" strokeWidth="5" fill="none"  />
+    <div className="w-full p-5 overflow-auto flex justify-center">
+    <div className="relative z-50 overflow-hidden flex flex-col justify-between items-center w-[200px] h-[200px] text-neutral-800 bg-neutral-200 border-[3px] border-primary-600 rounded-full p-6">
+      <img
+        alt="Energy Icon"
+        loading="lazy"
+        width={36} 
+        height={36}
+        className="z-50 w-9 h-9"
+        src="/icon/icons8-energy-100.png"
+        style={{ color: "transparent" ,width:'3.25rem',height:'3.25rem'}}
+      />
+      <div className="z-50 text-center text-neutral-1000 max-w-[120px]">
+        <p className="text-xl font-semibold">  <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" width="18" height="18" style={{ marginRight: '4px',float:'left',marginTop:'7px' }} /> {points.toFixed(4)}</p>
+        {isRunning && (
+        <p className="text-xs font-medium mt-2">{formatTime(timeLeft)}</p>
+      )}
 
-        {/* Inner Background Fill */}
-        <circle cx="80" cy="80" r="65" fill="#5ecaed" clipPath="url(#progressClip)" />
-        {/* White Foreground Circle (Masking Effect) */}
-        <circle cx="80" cy="80" r={64 - (points / rewardPerDay) * 65} fill="white" />
+      </div>
+      {!isRunning && !showClaim && (
+          <div class="z-50 h-[38px] max-w-[120px]"
+          >
+        <button onClick={startTrade} style={styles.button} className="w-[53px] h-[25px] rounded-[11px] bg-black text-white text-sm" >Start</button>
+        </div>
+      )}
+      {showClaim && (
+        <div class="z-50 h-[38px] max-w-[120px]"
+        ><button  onClick={claimReward}  style={styles.claimButton}  class="w-full __className_4fd903 btn btn-secondary btn-medium">Claim</button>
+        </div>
 
-        {/* Center Icon */}
-        <text x="50%" y="35%" dominantBaseline="middle" textAnchor="middle" fontSize="24" fill="#5ecaed">
-          ⚡
-        </text>
-        {/* USDT Icon */}
-
-        {/* Points Text */}
-        <foreignObject x="40" y="60" width="80" height="30">
-          <div xmlns="http://www.w3.org/1999/xhtml" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" width="18" height="18" style={{ marginRight: '4px' }} />
-            <span style={{ fontSize: '18px', fontWeight: 'bold', color: 'black' }}>{points.toFixed(4)}</span>
-          </div>
-        </foreignObject>
-        {/* Time Left */}
-        <text x="50%" y="63%" dominantBaseline="middle" textAnchor="middle" fontSize="14" fill="#555">
-          {formatTime(timeLeft)}
-        </text>
-
-        {/* Buttons Inside the Circle */}
-        {!isRunning && !showClaim && (
-          <foreignObject x="40" y="95" width="80" height="30">
-            <button onClick={startTrade} style={styles.button}>Start</button>
-          </foreignObject>
-        )}
-
-        {showClaim && (
-          <foreignObject x="40" y="95" width="80" height="30">
-            <button onClick={claimReward} style={styles.claimButton}>Claim</button>
-          </foreignObject>
-        )}
-      </svg>
-      {/* <div class="z-50 h-[38px] max-w-[120px] h-[0px]"></div> */}
+      )}
+      <div className="liquid" style={{ top: `${-206 + (1 - points / rewardPerDay) * 206}px` }}></div>
     </div>
-    </>
+  </div>
   );
 };
 const styles = {

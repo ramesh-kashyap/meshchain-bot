@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Api from "../services/Api";
+import { Toaster, toast } from "react-hot-toast";
 
 const CountdownTimer = ({ depositAmount = 100 }) => {
   const [telegram_id] = useState(localStorage.getItem("telegram_id"));
@@ -10,6 +11,9 @@ const CountdownTimer = ({ depositAmount = 100 }) => {
   const [rewardPerDay, setrewardPerDay] = useState(localStorage.getItem("rewardPerDay") || depositAmount * 0.01);
 
   const rewardPerInterval = rewardPerDay / (24 * 60 * 60 / 5); // Every 5 sec
+
+  // console.log("per"+rewardPerInterval);
+  
   const intervalRef = useRef(null);
 
   useEffect(() => {
@@ -39,7 +43,6 @@ const CountdownTimer = ({ depositAmount = 100 }) => {
           return newPoints;
         });
       }, 5000);
-
       return () => {
         clearInterval(timer);
         clearInterval(intervalRef.current);
@@ -94,6 +97,9 @@ const CountdownTimer = ({ depositAmount = 100 }) => {
         localStorage.removeItem("rewardPerDay");
         setPoints(0);
         setShowClaim(false);
+
+        toast.success('claimed successfully!')
+
       }
     } catch (error) {
       console.error("❌ Error claiming reward:", error);
@@ -109,7 +115,7 @@ const CountdownTimer = ({ depositAmount = 100 }) => {
 
   return (
     <div className="w-full p-5 overflow-auto flex justify-center">
-    <div className="relative z-50 overflow-hidden flex flex-col justify-between items-center w-[200px] h-[200px] text-neutral-800 bg-neutral-200 border-[3px] border-primary-600 rounded-full p-6">
+    <div className="relative z-50 overflow-hidden flex flex-col justify-between items-center w-[200px] h-[200px] text-neutral-800 bg-neutral-200 border-[3px] border-primary-600 rounded-full p-8">
       <img
         alt="Energy Icon"
         loading="lazy"
@@ -120,7 +126,7 @@ const CountdownTimer = ({ depositAmount = 100 }) => {
         style={{ color: "transparent" ,width:'3.25rem',height:'3.25rem'}}
       />
       <div className="z-50 text-center text-neutral-1000 max-w-[120px]">
-        <p className="text-xl font-semibold">  <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" width="18" height="18" style={{ marginRight: '4px',float:'left',marginTop:'7px' }} /> {points.toFixed(4)}</p>
+        <p className="text-xl font-semibold">  <img src="/icon/icons8-tether-48.png" width="18" height="18" style={{ marginRight: '4px',float:'left',marginTop:'6px' }} /> {points.toFixed(4)}</p>
         {isRunning && (
         <p className="text-xs font-medium mt-2">{formatTime(timeLeft)}</p>
       )}
@@ -134,7 +140,7 @@ const CountdownTimer = ({ depositAmount = 100 }) => {
       )}
       {showClaim && (
         <div class="z-50 h-[38px] max-w-[120px]"
-        ><button  onClick={claimReward}  style={styles.claimButton}  class="w-full __className_4fd903 btn btn-secondary btn-medium">Claim</button>
+        ><button  onClick={claimReward}  style={styles.claimButton}  class="w-full __className_4fd903 btn btn-primary btn-medium">Claim</button>
         </div>
 
       )}

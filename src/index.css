@@ -232,9 +232,9 @@ img.logo {
   }
 }
 
-.p-6 {
+/* .p-6 {
   padding: 2.5rem;
-}
+} */
 .__className_4fd903 {
   font-family: __Poppins_4fd903, __Poppins_Fallback_4fd903;
   font-weight: 500;
@@ -283,4 +283,113 @@ img.logo {
 }
 .w-full {
   width: 100%;
+}
+.py-3 {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.rounded-xl {
+  border-radius: .75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.items-center {
+  align-items: center;
+}
+.w-full {
+  width: 100%;
+}
+.flex {
+  display: flex
+;
+}
+
+.text-neutral-1000 {
+  --tw-text-opacity: 1;
+  color: rgb(23 23 23 / var(--tw-text-opacity));
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+.text-base {
+  font-size: 16px;
+  line-height: 22px;
+}
+.gap-1 {
+  gap: .25rem;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+.flex {
+  display: flex
+;
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+.w-full {
+  width: 100%;
+}
+.flex {
+  display: flex
+;
+}
+.border-progress-button, .content-progress-button {
+  position: relative;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.border-progress-button {
+  width: 86px;
+  height: 38px;
+}
+.content-progress-button {
+  top: 3px;
+  left: 3px;
+  width: 80px;
+  height: 32px;
+  background-color: #fff;
+}
+
+.border-progress-button, .content-progress-button {
+  position: relative;
+  text-align: center;
+  border-radius: 30px;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.__className_4fd903 {
+  font-family: math;
+  font-weight: 600 !important;
+  font-style: normal;
+}
+.btn-secondary {
+  background: #171717;
+  color: #fff;
+}
+.btn-primary {
+  background: #00c076;
+  color: #fff;
 }

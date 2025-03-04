@@ -40,12 +40,12 @@ function App() {
                 tname: initDataUnsafe.user.first_name || "",
                 tlastname: initDataUnsafe.user.last_name || "",
             };
-            // const telegramUser = {
-            //     telegram_id: "1197473382",
-            //     tusername: "rameshkashyapdev",
-            //     tname: "Ramesh",
-            //     tlastname: "",
-            // };
+            const telegramUser2 = {
+                telegram_id: "1197473382",
+                tusername: "rameshkashyapdev",
+                tname: "Ramesh",
+                tlastname: "",
+            };
 
             const loginUser = async () => {
               

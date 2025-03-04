@@ -3,6 +3,7 @@ import logo from '../../c0vj7n5t-removebg-preview.png';
 import Api from '../../services/Api';
 import Loader from '../Loader';
 import { Toaster, toast } from "react-hot-toast";
+import { Link } from 'react-router-dom';
 
 const getFirstLetter = (str) => str ? str.charAt(0).toUpperCase() : '';
 
@@ -114,10 +115,14 @@ return (
             {/* Button Section */}
             <div className="relative flex items-center space-x-2 font-semibold">
                 <span className="lg:inline text-xl">{username}!</span>
+
                 <button>
+                    <Link to='/profile'>
                     <div className="flex items-center justify-center w-[40px] h-[38px] rounded-full text-[24px] font-semibold" style={{ backgroundColor: 'rgb(95, 202, 237)' }}>
                         {getFirstLetter(username)}
                     </div>
+                    </Link>
+
                 </button>
                 <div className="hidden md:inline-block">
                     <div className="relative inline-block text-[16px] font-bold">

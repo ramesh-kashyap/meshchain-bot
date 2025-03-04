@@ -15,8 +15,7 @@ function Home() {
 
     if (button === 'reward') {
       fetchMiningBonus();
-      setText1('Todays Mining');   
-      setText2('Total Rewards');   
+     
     } else {
       setValue1('100');   
       setValue2('0.25 TH/s');   
@@ -32,7 +31,9 @@ function Home() {
       try {
         const response = await Api.get("auth/get-mining-bonus");
         if (response.data.success) {
-          setValue1(response.data.todayBonus);
+          setText1('Todays Mining');   
+          setText2('Total Rewards');  
+          setValue1(response.data.todayBonus?response.data.todayBonus:0.0);
           setValue2(response.data.totalBonus);
         }
       } catch (error) {
